@@ -90,8 +90,9 @@ Pre-process your video **before** importing it into the editor to clean it up, r
 
 **Step 1 — Find your video file**
 Go to wherever your video is saved (Downloads, Desktop, any folder)
+For video video editor in this -> E:\Tausif\Softwares\JianyingPro Drafts\PROJECT-NAME\Resources\combination
 
-**Step 2 — Right-click the script → Run with PowerShell**
+**Step 2 — Go in the script folder Right-click the script → Run with PowerShell**
 ```
 📁 Open: scripts\
 📄 Right-click: preprocess_video.ps1
@@ -100,11 +101,13 @@ Go to wherever your video is saved (Downloads, Desktop, any folder)
 
 **Step 3 — Enter your video path**
 
-When the black window opens, it will ask:
+The video that you found -> Right-click your video file → **Copy as path** -> It will be copied
+
+When the Terminal opens, it will ask:
 ```
 Enter your video path:
 ```
-Right-click your video file → **Copy as path** → paste it → press Enter
+paste the path of your video 
 
 **Step 4 — Pick what you want to do**
 ```
