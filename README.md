@@ -78,24 +78,81 @@ If you don't want to type commands, just right-click these files → **Run with 
 |--------|-------------|
 | `scripts\APPLY_ENGLISH.ps1` | Applies the English translation |
 | `scripts\REVERT_TO_CHINESE.ps1` | Reverts back to original UI |
+| `scripts\preprocess_video.ps1` | Pre-process any video before editing |
+
+---
+
+## 🎬 Video Pre-Processor
+
+Pre-process your video **before** importing it into the editor to clean it up, reduce size, or remove silence.
+
+### How to use (No commands needed)
+
+**Step 1 — Find your video file**
+Go to wherever your video is saved (Downloads, Desktop, any folder)
+
+**Step 2 — Right-click the script → Run with PowerShell**
+```
+📁 Open: scripts\
+📄 Right-click: preprocess_video.ps1
+▶️ Click: Run with PowerShell
+```
+
+**Step 3 — Enter your video path**
+
+When the black window opens, it will ask:
+```
+Enter your video path:
+```
+Right-click your video file → **Copy as path** → paste it → press Enter
+
+**Step 4 — Pick what you want to do**
+```
+[1] Silence Remove    - cut out silent gaps automatically
+[2] Noise Reduce      - remove background hiss/noise from audio
+[3] Compress          - reduce file size
+[4] Speed 2x          - double speed
+[5] Speed 0.5x        - slow motion
+[6] Reels Crop (9:16) - crop horizontal to vertical for Shorts/Reels
+[7] Trim              - extract a specific part of the video
+[8] All-in-one        - Silence Remove + Noise Reduce + Compress together
+```
+Type a number (or multiple numbers with comma e.g. `1,2`) → press Enter → Done ✅
+
+### Where does the output save?
+
+**Same folder as your original video**, with a label added to the name:
+
+| Operation | Output filename |
+|-----------|----------------|
+| Silence Remove | `myvideo_nosilence.mp4` |
+| Noise Reduce | `myvideo_clean.mp4` |
+| Compress | `myvideo_compressed.mp4` |
+| All-in-one | `myvideo_nosilence_clean_compressed.mp4` |
+
+### What does pre-processing actually do?
+
+| Without Pre-processing | With Pre-processing |
+|----------------------|-------------------|
+| Awkward silences in video | Auto-cut — video feels tight |
+| Background fan/AC noise | Clean audio |
+| Large file size (slow upload) | Smaller file, faster upload |
+| Horizontal video | Vertical — ready for Reels/Shorts |
+
+> **Note:** Pre-processing happens BEFORE you import into the editor. It does NOT unlock any paid effects inside the editor.
 
 ---
 
 ## 🛠️ Planned Features
 
-- [ ] Silence Remover — auto-cuts silent parts from video using ffmpeg
-- [ ] Noise Reducer — removes background hiss from audio
-- [ ] Auto-crop — converts 16:9 video to 9:16 for Reels/Shorts
-- [ ] Speed Changer — make video faster or slower
+- [x] Silence Remover — auto-cuts silent parts from video
+- [x] Noise Reducer — removes background hiss from audio
+- [x] Compress — reduces file size with quality control
+- [x] Speed Changer — 2x fast or 0.5x slow motion
+- [x] Reels Crop — 16:9 to 9:16 for Shorts/Reels
+- [x] Trim — extract specific clip from video
 - [ ] Python script plugin system — drop any `.py` script and run it on videos
-
-### How future scripts will work (PowerShell)
-```powershell
-# Example: once silence remover is added
-$video = "C:\Users\YourName\Videos\myvideo.mp4"
-.\scripts\silence_remover.ps1 -InputVideo $video
-# Output: myvideo_no_silence.mp4 in same folder
-```
+- [ ] Drag & drop GUI app
 
 ---
 
