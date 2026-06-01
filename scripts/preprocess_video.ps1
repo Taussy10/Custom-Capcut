@@ -6,12 +6,16 @@
 #   Output saves in the SAME folder as your input video
 # ============================================================
 
-$ffmpeg = "E:\Tausif\Softwares\JianyingPro\5.5.0.11332\ffmpeg.exe"
+# Refresh PATH so newly installed ffmpeg is found
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 
-# Check ffmpeg exists
-if (-not (Test-Path $ffmpeg)) {
-    Write-Host "ERROR: ffmpeg not found at: $ffmpeg" -ForegroundColor Red
-    Write-Host "Update the ffmpeg path in this script." -ForegroundColor Yellow
+$ffmpeg = "ffmpeg"
+
+# Check ffmpeg is available
+$ffmpegCheck = Get-Command ffmpeg -ErrorAction SilentlyContinue
+if (-not $ffmpegCheck) {
+    Write-Host "ERROR: ffmpeg not found on your system." -ForegroundColor Red
+    Write-Host "Install it by running:  winget install Gyan.FFmpeg" -ForegroundColor Yellow
     pause; exit
 }
 
