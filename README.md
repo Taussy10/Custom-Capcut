@@ -16,53 +16,106 @@ This repo contains modifications to make it more usable for English speakers, pl
 
 ---
 
-## 🌐 Apply the English Translation
+## ⚡ Quick Start (PowerShell — do this first)
 
-### Requirements
-- JianyingPro **5.5.0.11332** installed
+Open PowerShell and run these commands one by one:
 
-### Steps
-
-1. **Backup first** (always!):
-   ```
-   Copy zh-Hans.po → zh-Hans.po.bak
-   ```
-
-2. **Copy the translation file** to:
-   ```
-   <JianyingPro Install Folder>\5.5.0.11332\Resources\po\zh-Hans.po
-   ```
-   Default path example:
-   ```
-   E:\Tausif\Softwares\JianyingPro\5.5.0.11332\Resources\po\zh-Hans.po
-   ```
-
-3. **Launch JianyingPro** — UI will be in English ✅
-
-### One-click apply (PowerShell)
+### 1. Clone the repo
 ```powershell
-# Edit the path below to match your JianyingPro install location
-$dest = "C:\Path\To\JianyingPro\5.5.0.11332\Resources\po\zh-Hans.po"
-Copy-Item "translation\zh-Hans.po" $dest -Force
+git clone https://github.com/Taussy10/Custom-Capcut.git
+cd Custom-Capcut
+```
+
+### 2. Apply the English translation
+```powershell
+# Change this path to where YOUR JianyingPro is installed
+$jianyingPath = "E:\Tausif\Softwares\JianyingPro"
+
+# Set source and destination
+$src  = ".\translation\zh-Hans.po"
+$dest = "$jianyingPath\5.5.0.11332\Resources\po\zh-Hans.po"
+
+# Backup the original first (IMPORTANT)
+Copy-Item $dest "$dest.bak" -Force
+Write-Host "Backup created!" -ForegroundColor Green
+
+# Apply English translation
+Copy-Item $src $dest -Force
+Write-Host "English translation applied! Launch JianyingPro now." -ForegroundColor Cyan
+```
+
+### 3. Revert back to Chinese (if needed)
+```powershell
+# Change this path to where YOUR JianyingPro is installed
+$jianyingPath = "E:\Tausif\Softwares\JianyingPro"
+
+$dest   = "$jianyingPath\5.5.0.11332\Resources\po\zh-Hans.po"
+$backup = "$dest.bak"
+
+Copy-Item $backup $dest -Force
+Write-Host "Reverted to Chinese successfully!" -ForegroundColor Green
+```
+
+### 4. Pull latest updates from this repo
+```powershell
+# Run this whenever new scripts or translation improvements are pushed
+cd Custom-Capcut
+git pull origin main
+Write-Host "Repo updated!" -ForegroundColor Green
+```
+
+### 5. Check what changed in latest update
+```powershell
+git log --oneline -10
 ```
 
 ---
 
-## ↩️ Revert to Chinese
+## 🖱️ One-Click Scripts (Alternative to PowerShell)
 
-Run `scripts\REVERT_TO_CHINESE.ps1` — it restores the original Chinese UI instantly.
+If you don't want to type commands, just right-click these files → **Run with PowerShell**:
 
-> ⚠️ Make sure `zh-Hans.po.bak` exists in the `po\` folder before reverting.
+| Script | What it does |
+|--------|-------------|
+| `scripts\APPLY_ENGLISH.ps1` | Applies the English translation |
+| `scripts\REVERT_TO_CHINESE.ps1` | Reverts back to Chinese UI |
 
 ---
 
 ## 🛠️ Planned Features
 
-- [ ] Silence Remover script (auto-cut silent parts from video using ffmpeg)
-- [ ] Noise Reducer
-- [ ] Auto-crop (16:9 → 9:16 for Reels/Shorts)
-- [ ] Speed Changer
-- [ ] Python script plugin system
+- [ ] Silence Remover — auto-cuts silent parts from video using ffmpeg
+- [ ] Noise Reducer — removes background hiss from audio
+- [ ] Auto-crop — converts 16:9 video to 9:16 for Reels/Shorts
+- [ ] Speed Changer — make video faster or slower
+- [ ] Python script plugin system — drop any `.py` script and run it on videos
+
+### How future scripts will work (PowerShell)
+```powershell
+# Example: once silence remover is added
+$video = "C:\Users\YourName\Videos\myvideo.mp4"
+.\scripts\silence_remover.ps1 -InputVideo $video
+# Output: myvideo_no_silence.mp4 in same folder
+```
+
+---
+
+## 🔄 Contributing / Adding Your Own Scripts
+
+Want to add a new video processing script?
+
+```powershell
+# 1. Pull latest first
+git pull origin main
+
+# 2. Add your script to the scripts folder
+# scripts\my_new_script.ps1
+
+# 3. Commit and push
+git add .
+git commit -m "Add: my new script description"
+git push origin main
+```
 
 ---
 
@@ -75,6 +128,6 @@ JianyingPro is owned by ByteDance. Use this at your own risk.
 
 ## 📝 Notes
 
-- Translation is based on the internal string keys of JianyingPro 5.5.0.11332
-- Some labels may look slightly technical (e.g. internal feature flags) — improvements coming
-- ffmpeg is bundled with JianyingPro and is used by the video processing scripts
+- Translation covers JianyingPro version **5.5.0.11332**
+- ffmpeg is already bundled inside JianyingPro — our scripts use it directly, no extra install needed
+- Some UI labels may look slightly technical — translation improvements are planned
