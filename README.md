@@ -1,9 +1,8 @@
-# Custom-Capcut 🎬
+# Custom Video Editor 🎬
 
-> A mod collection for **Custom Video Editor** — English translation + video processing scripts.
+> A mod collection for a powerful video editor — English translation + video processing scripts.
 
-Custom Video Editor is a powerful video editing tool.  
-This repo contains modifications to make it more usable for English speakers, plus utility scripts for video processing.
+This repo contains modifications to improve the editor for English speakers, plus utility scripts for video processing.
 
 ---
 
@@ -22,14 +21,14 @@ Open PowerShell and run these commands one by one:
 
 ### 1. Clone the repo
 ```powershell
-git clone https://github.com/Taussy10/Custom-Capcut.git
-cd Custom-Capcut
+git clone https://github.com/Taussy10/Custom-Video-Editor.git
+cd Custom-Video-Editor
 ```
 
 ### 2. Apply the English translation
 ```powershell
-# Change this path to where YOUR Custom Video Editor is installed
-$appPath = "E:\Tausif\Softwares\Custom Video Editor"
+# Change this path to where YOUR app is installed
+$appPath = "C:\Path\To\Your\VideoEditor"
 
 # Set source and destination
 $src  = ".\translation\zh-Hans.po"
@@ -41,25 +40,25 @@ Write-Host "Backup created!" -ForegroundColor Green
 
 # Apply English translation
 Copy-Item $src $dest -Force
-Write-Host "English translation applied! Launch Custom Video Editor now." -ForegroundColor Cyan
+Write-Host "English translation applied! Launch the app now." -ForegroundColor Cyan
 ```
 
-### 3. Revert back to Chinese (if needed)
+### 3. Revert back to original (if needed)
 ```powershell
-# Change this path to where YOUR Custom Video Editor is installed
-$appPath = "E:\Tausif\Softwares\Custom Video Editor"
+# Change this path to where YOUR app is installed
+$appPath = "C:\Path\To\Your\VideoEditor"
 
 $dest   = "$appPath\5.5.0.11332\Resources\po\zh-Hans.po"
 $backup = "$dest.bak"
 
 Copy-Item $backup $dest -Force
-Write-Host "Reverted to Chinese successfully!" -ForegroundColor Green
+Write-Host "Reverted successfully!" -ForegroundColor Green
 ```
 
 ### 4. Pull latest updates from this repo
 ```powershell
 # Run this whenever new scripts or translation improvements are pushed
-cd Custom-Capcut
+cd Custom-Video-Editor
 git pull origin main
 Write-Host "Repo updated!" -ForegroundColor Green
 ```
@@ -78,7 +77,7 @@ If you don't want to type commands, just right-click these files → **Run with 
 | Script | What it does |
 |--------|-------------|
 | `scripts\APPLY_ENGLISH.ps1` | Applies the English translation |
-| `scripts\REVERT_TO_CHINESE.ps1` | Reverts back to Chinese UI |
+| `scripts\REVERT_TO_CHINESE.ps1` | Reverts back to original UI |
 
 ---
 
@@ -121,13 +120,13 @@ git push origin main
 
 ## ⚠️ Disclaimer
 
-This repo contains **only modifications and scripts** — not the Custom Video Editor application itself.  
-Custom Video Editor is owned by ByteDance. Use this at your own risk.
+This repo contains **only modifications and scripts** — not the application itself.  
+Use this at your own risk.
 
 ---
 
 ## 📝 Notes
 
-- Translation covers Custom Video Editor version **5.5.0.11332**
-- ffmpeg is already bundled inside Custom Video Editor — our scripts use it directly, no extra install needed
+- Translation covers app version **5.5.0.11332**
+- ffmpeg is already bundled inside the app — our scripts use it directly, no extra install needed
 - Some UI labels may look slightly technical — translation improvements are planned
