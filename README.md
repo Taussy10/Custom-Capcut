@@ -1,8 +1,8 @@
 # Custom-Capcut 🎬
 
-> A mod collection for **JianyingPro (剪映专业版)** — English translation + video processing scripts.
+> A mod collection for **Custom Video Editor** — English translation + video processing scripts.
 
-JianyingPro is a powerful video editor by ByteDance (same company as TikTok/CapCut).  
+Custom Video Editor is a powerful video editing tool.  
 This repo contains modifications to make it more usable for English speakers, plus utility scripts for video processing.
 
 ---
@@ -28,12 +28,12 @@ cd Custom-Capcut
 
 ### 2. Apply the English translation
 ```powershell
-# Change this path to where YOUR JianyingPro is installed
-$jianyingPath = "E:\Tausif\Softwares\JianyingPro"
+# Change this path to where YOUR Custom Video Editor is installed
+$appPath = "E:\Tausif\Softwares\Custom Video Editor"
 
 # Set source and destination
 $src  = ".\translation\zh-Hans.po"
-$dest = "$jianyingPath\5.5.0.11332\Resources\po\zh-Hans.po"
+$dest = "$appPath\5.5.0.11332\Resources\po\zh-Hans.po"
 
 # Backup the original first (IMPORTANT)
 Copy-Item $dest "$dest.bak" -Force
@@ -41,15 +41,15 @@ Write-Host "Backup created!" -ForegroundColor Green
 
 # Apply English translation
 Copy-Item $src $dest -Force
-Write-Host "English translation applied! Launch JianyingPro now." -ForegroundColor Cyan
+Write-Host "English translation applied! Launch Custom Video Editor now." -ForegroundColor Cyan
 ```
 
 ### 3. Revert back to Chinese (if needed)
 ```powershell
-# Change this path to where YOUR JianyingPro is installed
-$jianyingPath = "E:\Tausif\Softwares\JianyingPro"
+# Change this path to where YOUR Custom Video Editor is installed
+$appPath = "E:\Tausif\Softwares\Custom Video Editor"
 
-$dest   = "$jianyingPath\5.5.0.11332\Resources\po\zh-Hans.po"
+$dest   = "$appPath\5.5.0.11332\Resources\po\zh-Hans.po"
 $backup = "$dest.bak"
 
 Copy-Item $backup $dest -Force
@@ -121,13 +121,13 @@ git push origin main
 
 ## ⚠️ Disclaimer
 
-This repo contains **only modifications and scripts** — not the JianyingPro application itself.  
-JianyingPro is owned by ByteDance. Use this at your own risk.
+This repo contains **only modifications and scripts** — not the Custom Video Editor application itself.  
+Custom Video Editor is owned by ByteDance. Use this at your own risk.
 
 ---
 
 ## 📝 Notes
 
-- Translation covers JianyingPro version **5.5.0.11332**
-- ffmpeg is already bundled inside JianyingPro — our scripts use it directly, no extra install needed
+- Translation covers Custom Video Editor version **5.5.0.11332**
+- ffmpeg is already bundled inside Custom Video Editor — our scripts use it directly, no extra install needed
 - Some UI labels may look slightly technical — translation improvements are planned
