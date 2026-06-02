@@ -79,6 +79,7 @@ If you don't want to type commands, just right-click these files → **Run with 
 | `scripts\APPLY_ENGLISH.ps1` | Applies the English translation |
 | `scripts\REVERT_TO_CHINESE.ps1` | Reverts back to original UI |
 | `scripts\preprocess_video.ps1` | Pre-process any video before editing |
+| `scripts\add_captions.ps1` | Auto karaoke captions — red active word, optional watermark |
 
 ---
 
@@ -146,6 +147,71 @@ Type a number (or multiple numbers with comma e.g. `1,2`) → press Enter → Do
 
 ---
 
+## 🎤 Auto Karaoke Caption Generator
+
+Auto-transcribes your video using AI (Whisper) and burns **karaoke-style captions** directly into the video — active word highlights in **red** as it's spoken.
+
+### Requirements
+
+> Make sure these are installed before running:
+- [Python 3.11+](https://www.python.org/downloads/) — `python --version` to check
+- Whisper — install with: `pip install openai-whisper`
+- ffmpeg — must be in your system PATH
+
+### How to use
+
+**Step 1 — Right-click the script → Run with PowerShell**
+```
+📁 Open: scripts\
+📄 Right-click: add_captions.ps1
+▶️ Click: Run with PowerShell
+```
+
+**Step 2 — Enter your video path**
+```
+Enter your video path (or drag & drop):
+```
+Right-click your video → **Copy as path** → paste it → press Enter
+
+**Step 3 — Optional watermark**
+```
+Add watermark text? (e.g. @geodiary10) — leave blank to skip:
+```
+Type your handle (e.g. `@geodiary10`) or just press Enter to skip
+
+**Step 4 — Wait ~1 minute**
+
+The script will:
+1. 🔊 Extract audio from video
+2. 🧠 Transcribe with Whisper AI (~30s)
+3. 📝 Generate karaoke captions (red active word)
+4. 🎬 Burn captions + watermark into final video
+5. 🧹 Clean up all temp files automatically
+
+### Output
+
+**Same folder as your original video:**
+
+| Input | Output |
+|-------|--------|
+| `myvideo.mp4` | `myvideo_captioned.mp4` |
+
+### What the captions look like
+
+| Feature | Detail |
+|---------|--------|
+| Style | Karaoke — full line shown, active word highlighted |
+| Active word color | 🔴 Red + Bold |
+| Inactive words | ⬜ White |
+| Font | Arial Bold, 72px |
+| Position | Bottom center (above safe zone) |
+| Words per line | Max 6 words or 3.5s per line |
+| Watermark | Optional — top right corner, semi-transparent |
+
+> **Note:** First run may take longer as Whisper downloads the AI model (~140MB, one time only)
+
+---
+
 ## 🛠️ Planned Features
 
 - [x] Silence Remover — auto-cuts silent parts from video
@@ -154,6 +220,7 @@ Type a number (or multiple numbers with comma e.g. `1,2`) → press Enter → Do
 - [x] Speed Changer — 2x fast or 0.5x slow motion
 - [x] Reels Crop — 16:9 to 9:16 for Shorts/Reels
 - [x] Trim — extract specific clip from video
+- [x] Auto Karaoke Captions — AI transcription + red word highlight + watermark
 - [ ] Python script plugin system — drop any `.py` script and run it on videos
 - [ ] Drag & drop GUI app
 
