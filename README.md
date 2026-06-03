@@ -9,7 +9,7 @@
 | Tool | Script | What it does |
 |------|--------|--------------|
 | 🎤 Auto Captions | `scripts/add_captions.ps1` | AI-powered karaoke captions burned into video |
-| 🎙️ Audio Captions | `scripts/generate_audio_captions.ps1` | AI-powered SRT subtitles generated from audio files |
+| 🎙️ Audio Captions | `scripts/generate_audio_captions.ps1` | AI-powered JSON word-level timings and frames for Remotion |
 | 🎬 Video Pre-Processor | `scripts/preprocess_video.ps1` | Silence remove, noise reduce, compress, crop, trim, speed |
 | 🌐 Apply English UI | `scripts/APPLY_ENGLISH.ps1` | Switch JianyingPro UI to English |
 | 🔄 Revert to Chinese | `scripts/REVERT_TO_CHINESE.ps1` | Undo English translation, go back to original |
