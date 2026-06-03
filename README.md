@@ -23,7 +23,7 @@ Each tool has its own README with full instructions:
 | Tool | README |
 |------|--------|
 | 🎤 Auto Captions | [docs/add_captions.md](docs/add_captions.md) |
-| 🎙️ Audio Captions | [docs/generate_audio_captions.md](docs/generate_audio_captions.md) |
+| 🎙️ Audio Captions JSON generator for Remotion | [docs/generate_audio_captions.md](docs/generate_audio_captions.md) |
 | 🎬 Video Pre-Processor | [docs/preprocess_video.md](docs/preprocess_video.md) |
 | 🌐 Apply English UI | [docs/apply_english.md](docs/apply_english.md) |
 | 🔄 Revert to Chinese | [docs/revert_to_chinese.md](docs/revert_to_chinese.md) |
