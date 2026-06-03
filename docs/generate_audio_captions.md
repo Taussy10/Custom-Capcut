@@ -1,4 +1,4 @@
-# 🎙️ Audio Caption & Subtitle Generator (for Remotion JSON)
+# 🎙️ Remotion JSON Timings & Frames Generator
 
 This tool uses Python and Whisper AI to transcribe audio files (like `.mp3`, `.wav`, etc.) and automatically generate:
 - **Remotion-ready JSON** with word-level start/end times and calculated frames.

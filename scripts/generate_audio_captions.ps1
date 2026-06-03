@@ -1,5 +1,5 @@
 # ============================================================
-#  generate_audio_captions.ps1  —  Audio Transcriber & Subtitle Generator
+#  generate_audio_captions.ps1  —  Remotion JSON Timings & Frames Generator
 #  Part of Custom-Capcut scripts collection
 #  Usage: Right-click → Run with PowerShell
 # ============================================================
@@ -8,7 +8,7 @@ $ErrorActionPreference = "Stop"
 
 Write-Host ""
 Write-Host "============================================" -ForegroundColor Cyan
-Write-Host "   Audio Caption & Subtitle Generator" -ForegroundColor Cyan
+Write-Host "   Remotion JSON Timings & Frames Generator" -ForegroundColor Cyan
 Write-Host "============================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -62,7 +62,7 @@ Write-Host "============================================" -ForegroundColor Green
 Write-Host "   SUCCESS!" -ForegroundColor Green
 Write-Host "============================================" -ForegroundColor Green
 Write-Host ""
-Write-Host "Subtitles saved to:" -ForegroundColor White
+Write-Host "JSON file saved to:" -ForegroundColor White
 Write-Host "   JSON (Remotion): $jsonPath" -ForegroundColor Cyan
 Write-Host ""
 
