@@ -9,6 +9,7 @@
 | Tool | Script | What it does |
 |------|--------|--------------|
 | 🎤 Auto Captions | `scripts/add_captions.ps1` | AI-powered karaoke captions burned into video |
+| 🎙️ Audio Captions | `scripts/generate_audio_captions.ps1` | AI-powered SRT subtitles generated from audio files |
 | 🎬 Video Pre-Processor | `scripts/preprocess_video.ps1` | Silence remove, noise reduce, compress, crop, trim, speed |
 | 🌐 Apply English UI | `scripts/APPLY_ENGLISH.ps1` | Switch JianyingPro UI to English |
 | 🔄 Revert to Chinese | `scripts/REVERT_TO_CHINESE.ps1` | Undo English translation, go back to original |
@@ -22,6 +23,7 @@ Each tool has its own README with full instructions:
 | Tool | README |
 |------|--------|
 | 🎤 Auto Captions | [docs/add_captions.md](docs/add_captions.md) |
+| 🎙️ Audio Captions | [docs/generate_audio_captions.md](docs/generate_audio_captions.md) |
 | 🎬 Video Pre-Processor | [docs/preprocess_video.md](docs/preprocess_video.md) |
 | 🌐 Apply English UI | [docs/apply_english.md](docs/apply_english.md) |
 | 🔄 Revert to Chinese | [docs/revert_to_chinese.md](docs/revert_to_chinese.md) |
@@ -85,6 +87,6 @@ Use at your own risk.
 
 ## 📝 Notes
 
-- Translation covers JianyingPro version **5.5.0.11332**
+- Translation scripts automatically detect and support any installed version of JianyingPro (tested on **8.9.0.13361** and **5.5.0.11332**)
 - ffmpeg must be installed separately and in your system PATH
 - Whisper AI model downloads once (~140MB) on first caption run
