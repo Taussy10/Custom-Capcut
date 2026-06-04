@@ -78,8 +78,3 @@ git pull origin main
 
 
 
-## 📝 Notes
-
-- Translation scripts automatically detect and support any installed version of JianyingPro (tested on **8.9.0.13361** and **5.5.0.11332**)
-- ffmpeg must be installed separately and in your system PATH
-- Whisper AI model downloads once (~140MB) on first caption run
