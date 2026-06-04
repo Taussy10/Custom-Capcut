@@ -76,14 +76,7 @@ git pull origin main
 - [ ] Drag & drop GUI app
 - [ ] Python plugin system
 
----
 
-## ⚠️ Disclaimer
-
-This repo contains **only scripts and modifications** — not the application itself.  
-Use at your own risk.
-
----
 
 ## 📝 Notes
 
