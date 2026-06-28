@@ -1,4 +1,4 @@
-# 🎙️ Remotion JSON Timings & Frames Generator
+# 🎙️ Audio Timestamps Generator
 
 This tool uses Python and Whisper AI to transcribe audio files (like `.mp3`, `.wav`, etc.) and automatically generate:
 - **Remotion-ready JSON** with word-level start/end times and calculated frames.
@@ -8,7 +8,7 @@ This tool uses Python and Whisper AI to transcribe audio files (like `.mp3`, `.w
 ## ⚡ How to Run
 
 1. Open the `scripts/` folder.
-2. Right-click [generate_audio_captions.ps1](file:///E:/Tausif/Custom-Capcut/scripts/generate_audio_captions.ps1) and choose **Run with PowerShell**.
+2. Right-click [audio_timestamps-generator.ps1](file:///E:/Tausif/Custom-Capcut/scripts/audio_timestamps-generator.ps1) and choose **Run with PowerShell**.
 3. Drag & drop or paste the path to your audio file.
 4. Enter your target **FPS** for the Remotion project (e.g., `30` or `60`, default is `30`).
 5. Choose the Whisper model size:
@@ -17,7 +17,7 @@ This tool uses Python and Whisper AI to transcribe audio files (like `.mp3`, `.w
    - `small`: Higher accuracy, slightly slower.
    - `medium`: Very high accuracy, slowest.
 6. The script will generate the Remotion JSON file in the same folder as your input audio:
-   - `<audio_name>_remotion.json` (Word-level timestamps with calculated frames for Remotion animation)
+   - `<audio_name>-timestamps.json` (Word-level timestamps with calculated frames for Remotion animation)
 
 ---
 

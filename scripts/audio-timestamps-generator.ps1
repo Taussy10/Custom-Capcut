@@ -1,5 +1,5 @@
 # ============================================================
-#  generate_audio_captions.ps1  —  Remotion JSON Timings & Frames Generator
+#  audio_timestamps-generator.ps1  —  Audio Timestamps Generator
 #  Part of Custom-Capcut scripts collection
 #  Usage: Right-click → Run with PowerShell
 # ============================================================
@@ -8,7 +8,7 @@ $ErrorActionPreference = "Stop"
 
 Write-Host ""
 Write-Host "============================================" -ForegroundColor Cyan
-Write-Host "   Remotion JSON Timings & Frames Generator" -ForegroundColor Cyan
+Write-Host "         Audio Timestamps Generator" -ForegroundColor Cyan
 Write-Host "============================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -29,7 +29,7 @@ if ($fpsInput -eq "") { $fps = 30 } else { $fps = [int]$fpsInput }
 
 $audioDir  = Split-Path $audioPath -Parent
 $audioName = [System.IO.Path]::GetFileNameWithoutExtension($audioPath)
-$jsonPath  = Join-Path $audioDir "${audioName}_remotion.json"
+$jsonPath  = Join-Path $audioDir "timestamp-${audioName}.json"
 
 Write-Host ""
 Write-Host "File     : $audioPath" -ForegroundColor Gray
@@ -38,15 +38,16 @@ Write-Host "JSON Out : $jsonPath" -ForegroundColor Gray
 Write-Host ""
 
 # -- Step 3: Choose Whisper Model ---------------------------------------------
-Write-Host "Choose Whisper model size (default is 'base'):" -ForegroundColor Gray
+Write-Host "Choose Whisper model size (default is 'small'):" -ForegroundColor Gray
 Write-Host "1. tiny   (Fastest, lowest accuracy)" -ForegroundColor Gray
 Write-Host "2. base   (Fast, decent accuracy)" -ForegroundColor Gray
 Write-Host "3. small  (Medium, better accuracy)" -ForegroundColor Gray
 Write-Host "4. medium (Slow, high accuracy)" -ForegroundColor Gray
-$modelChoice = Read-Host "Enter choice (1-4) or press Enter for 'base'"
+$modelChoice = Read-Host "Enter choice (1-4) or press Enter for 'small'"
 
-$modelName = "base"
+$modelName = "small"
 if ($modelChoice -eq "1") { $modelName = "tiny" }
+elseif ($modelChoice -eq "2") { $modelName = "base" }
 elseif ($modelChoice -eq "3") { $modelName = "small" }
 elseif ($modelChoice -eq "4") { $modelName = "medium" }
 
@@ -63,7 +64,7 @@ Write-Host "   SUCCESS!" -ForegroundColor Green
 Write-Host "============================================" -ForegroundColor Green
 Write-Host ""
 Write-Host "JSON file saved to:" -ForegroundColor White
-Write-Host "   JSON (Remotion): $jsonPath" -ForegroundColor Cyan
+Write-Host "   JSON Timestamps: $jsonPath" -ForegroundColor Cyan
 Write-Host ""
 
 pause

@@ -9,7 +9,7 @@
 | Tool | Script | What it does |
 |------|--------|--------------|
 | 🎤 Auto Captions | `scripts/add_captions.ps1` | AI-powered karaoke captions burned into video |
-| 🎙️ Audio Captions | `scripts/generate_audio_captions.ps1` | AI-powered JSON word-level timings and frames for Remotion |
+| 🎙️ Audio Timestamps | `scripts/audio_timestamps-generator.ps1` | AI-powered JSON word-level timings and frames for Remotion |
 | 🎬 Video Pre-Processor | `scripts/preprocess_video.ps1` | Silence remove, noise reduce, compress, crop, trim, speed |
 | 🎙️ Voice Improver | `scripts/improve_voice.ps1` | Pro-vocal EQ, dynamic compression, noise gate, & LUFS normalize |
 
@@ -22,7 +22,7 @@ Each tool has its own README with full instructions:
 | Tool | README |
 |------|--------|
 | 🎤 Auto Captions | [docs/add_captions.md](docs/add_captions.md) |
-| 🎙️ Audio Captions JSON generator for Remotion | [docs/generate_audio_captions.md](docs/generate_audio_captions.md) |
+| 🎙️ Audio Timestamps Generator | [docs/audio_timestamps-generator.md](docs/audio_timestamps-generator.md) |
 | 🎬 Video Pre-Processor | [docs/preprocess_video.md](docs/preprocess_video.md) |
 | 🎙️ Voice Improver | [docs/improve_voice.md](docs/improve_voice.md) |
 
