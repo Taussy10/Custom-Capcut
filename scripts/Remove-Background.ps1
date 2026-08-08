@@ -53,6 +53,35 @@ $rembgArgs = @("i", $imagePath, $outputPath)
 
 if ($LASTEXITCODE -eq 0 -and (Test-Path $outputPath)) {
     Write-Host ""
+    $aggressive = Read-Host "Do you want to apply aggressive silhouette cleanup? (Removes fringes, turns shape solid black) [y/N]"
+    if ($aggressive -eq 'y' -or $aggressive -eq 'Y') {
+        Write-Host "Applying aggressive cleanup..." -ForegroundColor Yellow
+        $pyScript = @"
+import sys
+try:
+    from PIL import Image
+    img = Image.open(r'$outputPath').convert('RGBA')
+    data = img.getdata()
+    new_data = []
+    for item in data:
+        # If it's already transparent, keep it
+        if item[3] == 0:
+            new_data.append(item)
+            continue
+        brightness = (item[0] + item[1] + item[2]) / 3
+        if brightness > 150:
+            new_data.append((255, 255, 255, 0))
+        else:
+            new_data.append((0, 0, 0, 255))
+    img.putdata(new_data)
+    img.save(r'$outputPath')
+except Exception as e:
+    print('Cleanup Error:', e)
+"@
+        python -c $pyScript
+        Write-Host "Aggressive cleanup applied!" -ForegroundColor Green
+    }
+
     Write-Host "============================================" -ForegroundColor Green
     Write-Host "   SUCCESS!" -ForegroundColor Green
     Write-Host "============================================" -ForegroundColor Green
