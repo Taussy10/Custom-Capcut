@@ -1,4 +1,4 @@
-# 🎬 Custom-Capcut Toolkit
+# 🎬 Custom-Video/Image editing Toolkit using coding
 
 > A collection of PowerShell tools for video editing automation — captions, preprocessing, and app translation. No coding needed, just right-click and run.
 
