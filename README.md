@@ -1,4 +1,4 @@
-# 🎬 Custom-Video/Image editing Toolkit using coding
+# 🎬 Video/Image editing Toolkit
 
 > A collection of PowerShell tools for video editing automation — captions, preprocessing, and app translation. No coding needed, just right-click and run.
 
@@ -11,7 +11,6 @@
 | 🎤 Auto Captions | `scripts/add_captions.ps1` | AI-powered karaoke captions burned into video |
 | 🎙️ Audio Timestamps | `scripts/audio_timestamps-generator.ps1` | AI-powered JSON word-level timings and frames for Remotion |
 | 🎬 Video Pre-Processor | `scripts/preprocess_video.ps1` | Silence remove, noise reduce, compress, crop, trim, speed |
-| 🎙️ Voice Improver | `scripts/improve_voice.ps1` | Pro-vocal EQ, dynamic compression, noise gate, & LUFS normalize |
 
 ---
 
@@ -75,12 +74,6 @@ git pull origin main
 
 ---
 
-## ⚠️ Disclaimer
-
-This repo contains **only scripts and modifications** — not the application itself.  
-Use at your own risk.
-
----
 
 ## 📝 Notes
 
